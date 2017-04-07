@@ -2,18 +2,8 @@
   var RCSS = function(selector) {
     this.selector = selector;
     this.styleSheet = false;
-    this.hasSet = false;
     this.rule = false;
     this.ruleIndex = 0;
-  };
-
-  RCSS.prototype.on = function(el, event, callback) {
-    if (el === 'window') {
-      window.addEventListener(event, callback.bind(this));
-    }
-    if (el === 'document') {
-      document.addEventListener(event, callback.bind(this));
-    }
   };
 
   RCSS.prototype.getStyleSheet = function() {
@@ -32,15 +22,26 @@
     return this.ruleIndex;
   };
 
-  RCSS.prototype.set = function(styles) {
-    var sheet = this.getStyleSheet();
-    var index = this.getRuleIndex();
-    var rule = `${this.selector} { ${styles} }`;
-    if (this.hasSet) {
-      sheet.deleteRule(index);
+  RCSS.prototype.getRule = function() {
+    if (!this.rule) {
+      var sheet = this.getStyleSheet();
+      var rules = this.getRules();
+      var index = this.getRuleIndex();
+      var rule = `${this.selector} { zoom: 1; }`;
+      sheet.insertRule(rule, index);
+      this.rule = rules[index];
     }
-    sheet.insertRule(rule, index);
-    this.hasSet = true;
+    return this.rule;
+  };
+
+  RCSS.prototype.set = function(styleProps) {
+    var styles = this.getRule().style;
+    Object.keys(styleProps).forEach(function(k) {
+      if (Object.prototype.hasOwnProperty.call(styles, k)) {
+        styles[k] = styleProps[k];
+      }
+    });
+    return this;
   };
 
   window.RCSS = RCSS;
