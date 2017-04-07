@@ -1,19 +1,19 @@
 {
-  "name": "r-css",
+  "name": "zcss",
   "version": "0.0.1",
-  "description": "Reactive CSS",
+  "description": "Zesty CSS: Light-weight reactive styles",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ItsJonQ/r-css.git"
+    "url": "git+https://github.com/ItsJonQ/zcss.git"
   },
   "author": "ItsJonQ <itsjonq@gmail.com> (http://jonquach.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ItsJonQ/r-css/issues"
+    "url": "https://github.com/ItsJonQ/zcss/issues"
   },
-  "homepage": "https://github.com/ItsJonQ/r-css#readme"
+  "homepage": "https://github.com/ItsJonQ/zcss#readme"
 }
