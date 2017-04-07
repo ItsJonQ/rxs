@@ -1,6 +1,6 @@
 {
   "name": "zcss",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Zesty CSS: Light-weight reactive styles",
   "main": "index.js",
   "scripts": {
