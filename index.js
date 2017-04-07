@@ -27,7 +27,7 @@
       var sheet = this.getStyleSheet();
       var rules = this.getRules();
       var index = this.getRuleIndex();
-      var rule = `${this.selector} { zoom: 1; }`;
+      var rule = `${this.selector} { }`;
       sheet.insertRule(rule, index);
       this.rule = rules[index];
     }
