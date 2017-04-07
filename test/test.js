@@ -1,6 +1,6 @@
-var a = new ZCSS('.rx-height');
-var b = new ZCSS('.rx-follow');
-var c = new ZCSS('.rx-color');
+var a = new ZSS('.rx-height');
+var b = new ZSS('.rx-follow');
+var c = new ZSS('.rx-color');
 
 document.addEventListener('mousemove', function(e) {
   var s = e.screenX / window.innerWidth * 100;
@@ -8,8 +8,6 @@ document.addEventListener('mousemove', function(e) {
 
   a.set({
     background: `hsl(155, ${s}%, ${l}%)`,
-    // height: `${l}px`,
-    // width: `${s}%`,
   });
   b.set({
     transform: `translate3d(${e.clientX}px, ${e.clientY}px, 0)`,
