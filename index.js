@@ -11,6 +11,9 @@
     if (el === 'window') {
       window.addEventListener(event, callback.bind(this));
     }
+    if (el === 'document') {
+      document.addEventListener(event, callback.bind(this));
+    }
   };
 
   RCSS.prototype.getStyleSheet = function() {
