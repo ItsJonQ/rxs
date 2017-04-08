@@ -2,12 +2,12 @@
 
 A super fast dynamic CSS rules. Dependency-free at 1.5 KB minified!
 
-## Getting started
+## Installing
 ```
-npm install reactive-css
+npm install reactive-css --save
 ```
 
-## Example
+## Getting Started
 ```html
 <!-- Add a dynamic className to your element -->
 <!-- It can be whatever className, you want. `.rx-` convention not required. -->
@@ -31,3 +31,6 @@ npm install reactive-css
   });
 </script>
 ```
+
+## Example Demo
+Clone this repo, and open up the [example/index.html](https://github.com/ItsJonQ/reactive-css/blob/master/example/index.html) file.
