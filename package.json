@@ -1,19 +1,19 @@
 {
-  "name": "zcss",
-  "version": "0.0.2",
-  "description": "Zesty CSS: Light-weight reactive styles",
+  "name": "reactive-css",
+  "version": "0.0.1",
+  "description": "Reactive CSS: Super fast dynamic CSS rules.",
   "main": "index.js",
   "scripts": {
     "test": "true"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ItsJonQ/zcss.git"
+    "url": "git+https://github.com/ItsJonQ/reactive-css.git"
   },
   "author": "ItsJonQ <itsjonq@gmail.com> (http://jonquach.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ItsJonQ/zcss/issues"
+    "url": "https://github.com/ItsJonQ/reactive-css/issues"
   },
-  "homepage": "https://github.com/ItsJonQ/zcss#readme"
+  "homepage": "https://github.com/ItsJonQ/reactive-css#readme"
 }

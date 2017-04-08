@@ -1,6 +1,6 @@
-var a = new ZSS('.rx-height');
-var b = new ZSS('.rx-follow');
-var c = new ZSS('.rx-color');
+var a = rxs('.rx-height');
+var b = rxs('.rx-follow');
+var c = rxs('.rx-color');
 
 document.addEventListener('mousemove', function(e) {
   var s = e.screenX / window.innerWidth * 100;
