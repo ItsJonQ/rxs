@@ -1,6 +1,6 @@
-# rxs: Reactive CSS
-
 <img src="https://raw.githubusercontent.com/ItsJonQ/rxs/master/images/rxs-logo-2x.png" width="111">
+
+### rxs: Reactive CSS
 
 A super fast dynamic CSS rules.<br>
 Dependency-free at 1.34 KB minified!
