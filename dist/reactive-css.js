@@ -1,3 +1,8 @@
+/**
+ * reactive-css v0.0.1 (https://github.com/ItsJonQ/reactive-css#readme)
+ * Reactive CSS: Super fast dynamic CSS rules.
+ * Licensed under MIT
+ */
 (function() {
   window.ReactiveStylesheet = (function() {
     var style = document.createElement("style");
@@ -38,7 +43,7 @@
     var sheet = this.getStyleSheet();
     var rules = this.getRules();
     var index = this.getRuleIndex();
-    var rule = `${this.selector} { }`;
+    var rule = this.selector + ' { }';
     sheet.insertRule(rule, index);
     this.rule = rules[index];
     return this.rule;
@@ -67,5 +72,5 @@
     return this;
   };
 
-  window.rxs = RXS;
+  window.rxs = window.ReactiveCSS = RXS;
 })();

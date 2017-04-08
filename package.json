@@ -2,8 +2,12 @@
   "name": "reactive-css",
   "version": "0.0.1",
   "description": "Reactive CSS: Super fast dynamic CSS rules.",
-  "main": "index.js",
+  "main": "dist/reactive-css.js",
   "scripts": {
+    "build:banner": "node ./scripts/banner.js",
+    "build:minify": "uglifyjs src/reactive-css.js --output dist/reactive-css.min.js",
+    "build:copy": "cp src/reactive-css.js dist/reactive-css.js",
+    "build": "npm run build:copy && npm run build:minify && npm run build:banner",
     "test": "true"
   },
   "repository": {
@@ -15,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ItsJonQ/reactive-css/issues"
   },
-  "homepage": "https://github.com/ItsJonQ/reactive-css#readme"
+  "homepage": "https://github.com/ItsJonQ/reactive-css#readme",
+  "devDependencies": {
+    "uglify-js": "2.8.21"
+  }
 }
