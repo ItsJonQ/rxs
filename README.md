@@ -1,6 +1,7 @@
 # Reactive CSS
 
-A super fast dynamic CSS rules. Dependency-free at 1.5 KB minified!
+A super fast dynamic CSS rules.<br>
+Dependency-free at 1.5 KB minified!
 
 ## Getting Started
 ```
