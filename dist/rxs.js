@@ -75,5 +75,5 @@
     return new RXSRule(selector);
   };
 
-  window.rxs = window.ReactiveCSS = RXS;
+  window.rxs = window.RXS = RXS;
 })();
