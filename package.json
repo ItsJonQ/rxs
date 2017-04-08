@@ -5,7 +5,7 @@
   "main": "dist/reactive-css.js",
   "scripts": {
     "build:banner": "node ./scripts/banner.js",
-    "build:minify": "uglifyjs src/reactive-css.js --output dist/reactive-css.min.js",
+    "build:minify": "uglifyjs src/reactive-css.js --mangle --output dist/reactive-css.min.js",
     "build:copy": "cp src/reactive-css.js dist/reactive-css.js",
     "build": "npm run build:copy && npm run build:minify && npm run build:banner",
     "prepublish": "npm run build",

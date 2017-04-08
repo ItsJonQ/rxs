@@ -40,14 +40,17 @@
     var rules = this.getRules();
     var index = this.getRuleIndex();
     var rule = this.selector + ' { }';
+    console.log(rule);
     sheet.insertRule(rule, index);
     this.rule = rules[index];
     return this.rule;
   };
 
   RXSRule.prototype.hasRule = function() {
-    return Object.keys(this.getRules()).some(function(r) {
-      return r.selectorText === this.selector;
+    var self = this;
+    var rules = self.getRules();
+    return Object.keys(rules).some(function(r) {
+      return rules[r].selectorText === self.selector;
     });
   };
 
