@@ -5,7 +5,7 @@ Dependency-free at 1.34 KB minified!
 
 ## Getting Started
 ```
-npm install reactive-css --save
+npm install rxs --save
 ```
 
 ## Quick Example
@@ -18,7 +18,7 @@ For this example, we want the height of any element with the class of `.fun-heig
 </div>
 
 <!-- Add the reactive-css script -->
-<script src="../js/reactive-css.js"></script>
+<script src="../js/rxs.min.js"></script>
 ```
 
 In our Javascript, we'll define the Reactive CSS rule. We can set/update the rule by using the `.set()` method everytime the window is resized.
@@ -38,4 +38,4 @@ window.addEventListener('resize', function() {
 
 
 ## Example Demo
-Clone this repo, and open up the [example/index.html](https://github.com/ItsJonQ/reactive-css/blob/master/example/index.html) file.
+Clone this repo, and open up the [example/index.html](https://github.com/ItsJonQ/rxs/blob/master/example/index.html) file.

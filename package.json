@@ -1,26 +1,26 @@
 {
-  "name": "reactive-css",
+  "name": "rxs",
   "version": "0.1.0",
   "description": "Reactive CSS: Super fast dynamic CSS rules.",
-  "main": "dist/reactive-css.js",
+  "main": "rxs",
   "scripts": {
     "build:banner": "node ./scripts/banner.js",
-    "build:minify": "uglifyjs src/reactive-css.js --mangle --output dist/reactive-css.min.js",
-    "build:copy": "cp src/reactive-css.js dist/reactive-css.js",
+    "build:minify": "uglifyjs src/rxs.js --mangle --output dist/rxs.min.js",
+    "build:copy": "cp src/rxs.js dist/rxs.js",
     "build": "npm run build:copy && npm run build:minify && npm run build:banner",
     "prepublish": "npm run build",
     "test": "true"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ItsJonQ/reactive-css.git"
+    "url": "git+https://github.com/ItsJonQ/rxs.git"
   },
   "author": "ItsJonQ <itsjonq@gmail.com> (http://jonquach.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ItsJonQ/reactive-css/issues"
+    "url": "https://github.com/ItsJonQ/rxs/issues"
   },
-  "homepage": "https://github.com/ItsJonQ/reactive-css#readme",
+  "homepage": "https://github.com/ItsJonQ/rxs#readme",
   "devDependencies": {
     "uglify-js": "2.8.21"
   }

@@ -1,5 +1,5 @@
 /**
- * reactive-css v0.1.0 (https://github.com/ItsJonQ/reactive-css#readme)
+ * rxs v0.1.0 (https://github.com/ItsJonQ/rxs#readme)
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
