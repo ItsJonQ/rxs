@@ -1,15 +1,11 @@
 (function() {
+  'use strict';
   window.ReactiveStylesheet = (function() {
-    var style = document.createElement("style");
-    // WebKit hack :(
-    style.appendChild(document.createTextNode(""));
+    var style = document.createElement('style');
+    style.appendChild(document.createTextNode(''));
     document.head.appendChild(style);
     return style.sheet;
   })();
-
-  var RXS = function(selector) {
-    return new RXSRule(selector);
-  };
 
   var RXSRule = function(selector) {
     this.selector = selector;
@@ -65,6 +61,10 @@
       }
     });
     return this;
+  };
+
+  var RXS = function(selector) {
+    return new RXSRule(selector);
   };
 
   window.rxs = window.ReactiveCSS = RXS;
