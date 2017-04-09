@@ -1,5 +1,5 @@
 /**
- * rxs v0.3.3 (https://github.com/ItsJonQ/rxs#readme)
+ * rxs v0.3.4 (https://github.com/ItsJonQ/rxs#readme)
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
@@ -83,6 +83,16 @@
       self.getRule().style.setProperty(k, prop, self.isImportant(prop));
     });
     return this;
+  };
+
+  RXSRule.prototype.inspect = function() {
+    var style = this.getRule().style;
+    return Object.keys(style).reduce(function(props, r) {
+      if(style[r].length && isNaN(parseInt(r, 10))) {
+        props[r] = style[r];
+      }
+      return props;
+    }, {});
   };
 
   var RXS = function(selector, props) {
