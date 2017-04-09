@@ -8,7 +8,7 @@ var expect = require('chai').expect;
 nodeRXS(window);
 var rxs = window.rxs;
 
-describe('rxs.inspect', function() {
+describe('rxs.remove', function() {
   var el = window.document.getElementById('test');
   el.classList.add('rx-style');
   var p = {
