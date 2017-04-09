@@ -3,7 +3,7 @@
 ### rxs: Reactive CSS
 
 Super fast dynamic CSS rules.<br>
-Dependency-free at 1.34 KB minified!
+Dependency-free at 1.3 KB minified!
 
 ## Getting Started
 ```
