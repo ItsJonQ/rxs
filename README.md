@@ -38,6 +38,18 @@ window.addEventListener('resize', function() {
 });
 ```
 
+Alternatively, you can write the above in a slightly shorter way by passing the style properties as a second argument for `rxs()`:
+
+```js
+window.addEventListener('resize', function() {
+  // Everytime the window is resized, update the height property for
+  // the class `.fun-height` to a computed height
+  rxs('.fun-height', {
+    height: (window.innerHeight * 0.65) + 'px',
+  });
+});
+```
+
 
 ## Example Demo
 Clone this repo, and open up the [example/index.html](https://github.com/ItsJonQ/rxs/blob/master/example/index.html) file.
