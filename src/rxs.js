@@ -68,7 +68,7 @@
   };
 
   RXSRule.prototype.isImportant = function(prop) {
-    return prop.indexOf('!important') >= 0 ? '!important' : '';
+    return prop.toString().indexOf('!important') >= 0 ? '!important' : '';
   };
 
   RXSRule.prototype.set = function(styleProps) {

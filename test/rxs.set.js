@@ -22,6 +22,15 @@ describe('rxs.set', function() {
     expect(style.display).to.equal('inline');
   });
 
+  it('should accept and handle a number (type) value', function() {
+    r.set({
+      opacity: 0.92,
+    });
+    var style = window.getComputedStyle(el);
+
+    expect(style.opacity).to.equal('0.92');
+  });
+
   it('should set multiple CSS properties', function() {
     r.set({
       padding: '10px',
