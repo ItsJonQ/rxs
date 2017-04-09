@@ -1,5 +1,5 @@
 /**
- * rxs v0.1.1 (https://github.com/ItsJonQ/rxs#readme)
+ * rxs v0.2.0 (https://github.com/ItsJonQ/rxs#readme)
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
