@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/ItsJonQ/rxs/master/images/rxs-logo-2x.png" width="111">
 
-### rxs: Reactive CSS
+### rxs: Reactive CSS [![Build Status](https://travis-ci.org/ItsJonQ/rxs.svg?branch=master)](https://travis-ci.org/ItsJonQ/rxs)
 
 Super fast dynamic CSS rules.<br>
 Dependency-free at 1.3 KB minified!
