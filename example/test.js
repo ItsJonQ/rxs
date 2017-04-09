@@ -2,6 +2,10 @@ var a = rxs('.rx-height');
 var b = rxs('.rx-follow');
 var c = rxs('.rx-color');
 
+a.set({
+  background: 'orange',
+});
+
 document.addEventListener('mousemove', function(e) {
   var s = e.screenX / window.innerWidth * 100;
   var l = e.screenY / window.innerHeight * 100;

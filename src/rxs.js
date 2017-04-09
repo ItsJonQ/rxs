@@ -19,7 +19,7 @@
   };
 
   RXSRule.prototype.getRules = function() {
-    var sheet =  this.getStyleSheet();
+    var sheet = this.getStyleSheet();
     return sheet.cssRules || sheet.rules;
   };
 
@@ -31,29 +31,25 @@
   };
 
   RXSRule.prototype.addRule = function() {
-    var sheet = this.getStyleSheet();
-    var rules = this.getRules();
     var index = this.getRuleIndex();
     var rule = this.selector + ' { }';
-    console.log(rule);
-    sheet.insertRule(rule, index);
-    this.rule = rules[index];
-    return this.rule;
+    this.getStyleSheet().insertRule(rule, index);
+    return this.getRules()[index];
   };
 
-  RXSRule.prototype.hasRule = function() {
-    var self = this;
-    var rules = self.getRules();
-    return Object.keys(rules).some(function(r) {
-      return rules[r].selectorText === self.selector;
-    });
+  RXSRule.prototype.findRule = function() {
+    var rules = this.getRules();
+    var rule = false;
+    for (var i = 0, len = Object.keys(rules).length; i < len; i++) {
+      if (rules[i].selectorText === this.selector) {
+        rule = rules[i]; break;
+      }
+    }
+    return rule;
   };
 
   RXSRule.prototype.getRule = function() {
-    if (!this.rule || !this.hasRule()) {
-      this.addRule();
-    }
-    return this.rule;
+    return this.rule = this.findRule() || this.addRule();
   };
 
   RXSRule.prototype.set = function(styleProps) {

@@ -9,6 +9,7 @@
     "build:copy": "cp src/rxs.js dist/rxs.js",
     "build": "npm run build:copy && npm run build:minify && npm run build:banner",
     "prepublish": "npm run build",
+    "test:qunit": "node-qunit-phantomjs ./test/qunit/index.html --verbose",
     "test": "true"
   },
   "repository": {
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/ItsJonQ/rxs#readme",
   "devDependencies": {
+    "seed-bistro": "0.0.3",
     "uglify-js": "2.8.21"
   }
 }
