@@ -52,4 +52,6 @@ window.addEventListener('resize', function() {
 
 
 ## Example Demo
-Clone this repo, and open up the [example/index.html](https://github.com/ItsJonQ/rxs/blob/master/example/index.html) file.
+Clone this repo, and open up:
+* [example/index.html](https://github.com/ItsJonQ/rxs/blob/master/example/index.html)
+* [example/hero.html](https://github.com/ItsJonQ/rxs/blob/master/example/hero.html)
