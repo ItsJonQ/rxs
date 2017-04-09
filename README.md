@@ -3,7 +3,7 @@
 ### rxs: Reactive CSS [![Build Status](https://travis-ci.org/ItsJonQ/rxs.svg?branch=master)](https://travis-ci.org/ItsJonQ/rxs)
 
 Super fast dynamic CSS rules.<br>
-Dependency-free at 1.6 KB minified!
+Dependency-free and less than 2 KB!
 
 ## Getting Started
 ```
