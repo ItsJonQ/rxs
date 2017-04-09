@@ -1,35 +1,66 @@
 'use strict';
+var jsdom = require('jsdom').jsdom;
+var document = jsdom('<div id="test"></div>');
+var window = document.defaultView;
+var nodeRXS = require('../src/rxs.js');
+var expect = require('chai').expect;
 
-var expect = chai.expect;
-var fx = document.getElementById('fixtures');
+nodeRXS(window);
+var rxs = window.rxs;
 
 describe('rxs.set', function() {
-  var el = document.createElement('div');
-  var c = 'rx-s';
-  var s = rxs('.rx-s');
-  fx.appendChild(el);
+  var el = window.document.getElementById('test');
+  el.classList.add('rx-style');
+  var r = rxs('.rx-style');
 
-  it('should set a simple CSS property', function() {
-    var prop = '10px';
-    el.classList.add(c);
-    s.set({
-      height: prop,
+  it('should set a single CSS property', function() {
+    r.set({
+      display: 'inline',
     });
+    var style = window.getComputedStyle(el);
 
-    expect(el.clientHeight).to.equal(false);
+    expect(style.display).to.equal('inline');
   });
 
   it('should set multiple CSS properties', function() {
-    s.set({
-      background: 'rgba(255, 165, 0, 0)',
-      margin: '50px',
+    r.set({
       padding: '10px',
+      width: '300px',
     });
-    var styles = window.getComputedStyle(el);
+    var style = window.getComputedStyle(el);
 
-    expect(styles.backgroundColor).to.equal('rgba(255, 165, 0, 0)');
-    expect(styles.margin).to.equal('50px');
-    expect(styles.padding).to.equal('10px');
+    expect(style.padding).to.equal('10px');
+    expect(style.width).to.equal('300px');
   });
 
+  it('should set single CSS property, without affecting previous properties', function() {
+    r.set({
+      background: 'transparent',
+    });
+    var style = window.getComputedStyle(el);
+
+    expect(style.background).to.equal('transparent');
+    expect(style.width).to.equal('300px'); // from previous test
+  });
+
+  it('should set multiple CSS property, without affecting previous properties', function() {
+    r.set({
+      marginLeft: '50px',
+      position: 'absolute',
+    });
+    var style = window.getComputedStyle(el);
+
+    expect(style.marginLeft).to.equal('50px');
+    expect(style.position).to.equal('absolute');
+    expect(style.width).to.equal('300px'); // from previous test
+  });
+
+  it('should set an !important CSS property', function() {
+    r.set({
+      display: 'inline-block !important',
+    });
+    var style = window.getComputedStyle(el);
+
+    expect(style.display).to.equal('inline-block !important');
+  });
 });

@@ -8,9 +8,10 @@
     "build:minify": "uglifyjs src/rxs.js --mangle --output dist/rxs.min.js",
     "build:copy": "cp src/rxs.js dist/rxs.js",
     "build": "npm run build:copy && npm run build:minify && npm run build:banner",
-    "prepublish": "npm run build",
+    "prepublish": "npm run test",
+    "test:mocha": "mocha",
     "test:qunit": "node-qunit-phantomjs ./test/qunit/index.html --verbose",
-    "test": "true"
+    "test": "npm run test:mocha"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/ItsJonQ/rxs#readme",
   "devDependencies": {
+    "jsdom": "9.12.0",
     "seed-bistro": "0.0.3",
     "uglify-js": "2.8.21"
   }
