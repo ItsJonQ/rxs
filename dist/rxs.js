@@ -3,14 +3,22 @@
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
-(function() {
+(function(global, factory) {
+  if (typeof module === 'object' && typeof module.exports === 'object') {
+    module.exports = global.document ?
+      factory(global, true) :
+      function(w) {
+        if (!w.document) {
+          throw new Error('ReactiveCSS requires a window with a document');
+        }
+        return factory(w);
+      };
+  } else {
+    factory(global);
+  }
+}(typeof window !== 'undefined' ? window : this, function(window, noGlobal) {
   'use strict';
-  window.ReactiveStylesheet = (function() {
-    var style = document.createElement('style');
-    style.appendChild(document.createTextNode(''));
-    document.head.appendChild(style);
-    return style.sheet;
-  })();
+  var document = window.document;
 
   var RXSRule = function(selector) {
     this.selector = selector;
@@ -19,8 +27,15 @@
     this.ruleIndex = 0;
   };
 
+  RXSRule.prototype.addStyleSheet = function() {
+    var style = document.createElement('style');
+    style.appendChild(document.createTextNode(''));
+    document.head.appendChild(style);
+    return style.sheet;
+  };
+
   RXSRule.prototype.getStyleSheet = function() {
-    return this.styleSheet || window.ReactiveStylesheet;
+    return this.styleSheet || document.styleSheets[0] || this.addStyleSheet();
   };
 
   RXSRule.prototype.getRules = function() {
@@ -37,8 +52,7 @@
 
   RXSRule.prototype.addRule = function() {
     var index = this.getRuleIndex();
-    var rule = this.selector + ' { }';
-    this.getStyleSheet().insertRule(rule, index);
+    this.getStyleSheet().insertRule(this.selector + ' { }', index);
     return this.getRules()[index];
   };
 
@@ -57,12 +71,15 @@
     return this.rule = this.findRule() || this.addRule();
   };
 
+  RXSRule.prototype.isImportant = function(prop) {
+    return prop.indexOf('!important') >= 0 ? '!important' : '';
+  };
+
   RXSRule.prototype.set = function(styleProps) {
-    var styles = this.getRule().style;
+    var self = this;
     Object.keys(styleProps).forEach(function(k) {
-      if (Object.prototype.hasOwnProperty.call(styles, k)) {
-        styles[k] = styleProps[k];
-      }
+      var prop = styleProps[k];
+      self.getRule().style.setProperty(k, prop, self.isImportant(prop));
     });
     return this;
   };
@@ -71,5 +88,5 @@
     return new RXSRule(selector);
   };
 
-  window.rxs = window.RXS = RXS;
-})();
+  return window.rxs = window.RXS = RXS;
+}));
