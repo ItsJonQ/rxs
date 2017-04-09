@@ -80,6 +80,16 @@
     return this;
   };
 
+  RXSRule.prototype.inspect = function() {
+    var style = this.getRule().style;
+    return Object.keys(style).reduce(function(props, r) {
+      if(style[r].length && isNaN(parseInt(r, 10))) {
+        props[r] = style[r];
+      }
+      return props;
+    }, {});
+  };
+
   var RXS = function(selector, props) {
     if (!selector || typeof selector !== 'string') {
       return false;
