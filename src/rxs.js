@@ -4,7 +4,7 @@
       factory(global, true) :
       function(w) {
         if (!w.document) {
-          throw new Error('ReactiveCSS requires a window with a document');
+          throw new Error('RXS: Reactive CSS requires a window with a document');
         }
         return factory(w);
       };
@@ -20,6 +20,7 @@
     this.styleSheet = false;
     this.rule = false;
     this.ruleIndex = 0;
+    return this;
   };
 
   RXSRule.prototype.addStyleSheet = function() {
