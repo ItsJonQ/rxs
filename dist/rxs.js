@@ -1,5 +1,5 @@
 /**
- * rxs v0.3.0 (https://github.com/ItsJonQ/rxs#readme)
+ * rxs v0.3.1 (https://github.com/ItsJonQ/rxs#readme)
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
@@ -9,7 +9,7 @@
       factory(global, true) :
       function(w) {
         if (!w.document) {
-          throw new Error('ReactiveCSS requires a window with a document');
+          throw new Error('RXS: Reactive CSS requires a window with a document');
         }
         return factory(w);
       };
@@ -25,6 +25,7 @@
     this.styleSheet = false;
     this.rule = false;
     this.ruleIndex = 0;
+    return this;
   };
 
   RXSRule.prototype.addStyleSheet = function() {
