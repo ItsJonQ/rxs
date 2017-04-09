@@ -80,9 +80,17 @@
     return this;
   };
 
-  var RXS = function(selector) {
-    return new RXSRule(selector);
+  var RXS = function(selector, props) {
+    if (!selector || typeof selector !== 'string') {
+      return false;
+    }
+    var rule = new RXSRule(selector);
+    if (props && typeof props === 'object') {
+      rule.set(props);
+    }
+    return rule;
   };
 
+  window.RXSRule = RXSRule;
   return window.rxs = window.RXS = RXS;
 }));
