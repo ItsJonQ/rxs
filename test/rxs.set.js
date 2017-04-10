@@ -71,4 +71,18 @@ describe('rxs.set', function() {
 
     expect(r.rule.style._importants.display).to.equal('important');
   });
+
+  it('should set all props as !important if second argument is "important"', function() {
+    r.set({
+      padding: '10px',
+    });
+    r.set({
+      display: 'flex',
+      opacity: '0.5',
+    }, 'important');
+
+    expect(r.rule.style._importants.display).to.equal('important');
+    expect(r.rule.style._importants.opacity).to.equal('important');
+    expect(r.rule.style._importants.padding).to.equal('');
+  });
 });

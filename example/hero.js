@@ -5,12 +5,12 @@ var magicBar = function() {
   var offset = window.pageYOffset;
   var transform = 'translateY(-100%)';
   if (offset >= 50) {
-    transform = 'translateY(0%) !important';
+    transform = 'translateY(0%)';
   }
   b.set({
     transition: 'transform 0.3s ease',
     transform: transform,
-  });
+  }, 'important');
 }
 
 var magicHero = function() {
