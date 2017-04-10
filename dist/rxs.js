@@ -1,5 +1,5 @@
 /**
- * rxs v0.3.7 (https://github.com/ItsJonQ/rxs#readme)
+ * rxs v0.4.0 (https://github.com/ItsJonQ/rxs#readme)
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
@@ -95,12 +95,13 @@
     return prop.toString().indexOf('!important') >= 0 ? 'important' : '';
   };
 
-  RXSRule.prototype.set = function(styleProps) {
+  RXSRule.prototype.set = function(styleProps, important) {
     var self = this;
     Object.keys(styleProps).forEach(function(k) {
       var prop = styleProps[k];
       var p = typeof prop === 'string' ? prop.replace(' !important', '') : prop;
-      self.getRule().style.setProperty(k, p, self.isImportant(prop));
+      var i = important === 'important' ? 'important' : self.isImportant(prop);
+      self.getRule().style.setProperty(k, p, i);
     });
     return this;
   };
