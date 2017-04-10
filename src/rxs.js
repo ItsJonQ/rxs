@@ -42,7 +42,7 @@
   RXSRule.prototype.getRuleIndex = function() {
     if (!this.ruleIndex) {
       if (this.rule) {
-        this.ruleIndex = this.getRules().indexOf(this.rule);
+        this.ruleIndex = this.findRuleIndex();
       } else {
         var len = this.getRules().length;
         this.ruleIndex = len ? len - 1 : 0;
@@ -64,14 +64,21 @@
     return this;
   };
 
-  RXSRule.prototype.findRule = function() {
+  RXSRule.prototype.findRuleIndex = function() {
     var rules = this.getRules();
-    var rule = false;
+    var index = false;
     for (var i = 0, len = Object.keys(rules).length; i < len; i++) {
       if (rules[i].selectorText === this.selector) {
-        rule = rules[i]; break;
+        index = i; break;
       }
     }
+    return index;
+  };
+
+  RXSRule.prototype.findRule = function() {
+    var rules = this.getRules();
+    var index = this.findRuleIndex();
+    var rule = index !== false ? rules[index] : false;
     return rule;
   };
 
