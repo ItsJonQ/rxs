@@ -68,8 +68,7 @@ describe('rxs.set', function() {
     r.set({
       display: 'inline-block !important',
     });
-    var style = window.getComputedStyle(el);
 
-    expect(style.display).to.equal('inline-block !important');
+    expect(r.rule.style._importants.display).to.equal('important');
   });
 });
