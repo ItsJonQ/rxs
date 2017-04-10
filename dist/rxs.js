@@ -1,5 +1,5 @@
 /**
- * rxs v0.3.5 (https://github.com/ItsJonQ/rxs#readme)
+ * rxs v0.3.6 (https://github.com/ItsJonQ/rxs#readme)
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
@@ -22,9 +22,9 @@
 
   var RXSRule = function(selector) {
     this.selector = selector;
-    this.styleSheet = false;
-    this.rule = false;
-    this.ruleIndex = 0;
+    this.styleSheet = this.getStyleSheet();
+    this.rule = this.getRule();
+    this.ruleIndex = this.getRuleIndex();
     return this;
   };
 
@@ -46,8 +46,12 @@
 
   RXSRule.prototype.getRuleIndex = function() {
     if (!this.ruleIndex) {
-      var len = this.getRules().length;
-      this.ruleIndex = len ? len - 1 : 0;
+      if (this.rule) {
+        this.ruleIndex = this.getRules().indexOf(this.rule);
+      } else {
+        var len = this.getRules().length;
+        this.ruleIndex = len ? len - 1 : 0;
+      }
     }
     return this.ruleIndex;
   };
@@ -81,14 +85,15 @@
   };
 
   RXSRule.prototype.isImportant = function(prop) {
-    return prop.toString().indexOf('!important') >= 0 ? '!important' : '';
+    return prop.toString().indexOf('!important') >= 0 ? 'important' : '';
   };
 
   RXSRule.prototype.set = function(styleProps) {
     var self = this;
     Object.keys(styleProps).forEach(function(k) {
       var prop = styleProps[k];
-      self.getRule().style.setProperty(k, prop, self.isImportant(prop));
+      var p = typeof prop === 'string' ? prop.replace(' !important', '') : prop;
+      self.getRule().style.setProperty(k, p, self.isImportant(prop));
     });
     return this;
   };
