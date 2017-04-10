@@ -10,6 +10,13 @@ Tiny and Dependency-free!
 npm install rxs --save
 ```
 
+
+## Example Demo
+Clone this repo, and open up:
+* [example/index.html](https://jonquach.com/demos/rxs/neato.html) (Move your mouse around + resize window)
+* [example/hero.html](http://jonquach.com/demos/rxs/hero.html) (Scroll)
+
+
 ## Quick Example
 
 For this example, we want the height of any element with the class of `.fun-height` to be exactly 65% of the window's height, in `px`. It should also update everytime the browser is resized.
@@ -49,9 +56,3 @@ window.addEventListener('resize', function() {
   });
 });
 ```
-
-
-## Example Demo
-Clone this repo, and open up:
-* [example/index.html](https://jonquach.com/demos/rxs/neato.html)
-* [example/hero.html](http://jonquach.com/demos/rxs/hero.html)
