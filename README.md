@@ -53,5 +53,5 @@ window.addEventListener('resize', function() {
 
 ## Example Demo
 Clone this repo, and open up:
-* [example/index.html](https://github.com/ItsJonQ/rxs/blob/master/example/index.html)
-* [example/hero.html](https://github.com/ItsJonQ/rxs/blob/master/example/hero.html)
+* [example/index.html](https://jonquach.com/demos/rxs/neato.html)
+* [example/hero.html](http://jonquach.com/demos/rxs/hero.html)
