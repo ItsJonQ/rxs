@@ -1,4 +1,17 @@
 var a = rxs('.rx-hero-image');
+var b = rxs('.rx-promo-bar');
+
+var magicBar = function() {
+  var offset = window.pageYOffset;
+  var transform = 'translateY(-100%)';
+  if (offset >= 50) {
+    transform = 'translateY(0%) !important';
+  }
+  b.set({
+    transition: 'transform 0.3s ease',
+    transform: transform,
+  });
+}
 
 var magicHero = function() {
   var offset = window.pageYOffset;
@@ -12,4 +25,9 @@ var magicHero = function() {
   });
 };
 
-window.addEventListener('scroll', magicHero, false);
+var scrollStyles = function() {
+  magicBar();
+  magicHero();
+};
+
+window.addEventListener('scroll', scrollStyles, false);
