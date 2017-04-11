@@ -1,5 +1,5 @@
 /**
- * rxs v0.4.0 (https://github.com/ItsJonQ/rxs#readme)
+ * rxs v0.4.1 (https://github.com/ItsJonQ/rxs#readme)
  * Reactive CSS: Super fast dynamic CSS rules.
  * Licensed under MIT
  */
@@ -36,7 +36,7 @@
   };
 
   RXSRule.prototype.getStyleSheet = function() {
-    return this.styleSheet || document.styleSheets[0] || this.addStyleSheet();
+    return this.styleSheet || document.styleSheets[document.styleSheets.length - 1] || this.addStyleSheet();
   };
 
   RXSRule.prototype.getRules = function() {
