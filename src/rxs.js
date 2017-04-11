@@ -31,7 +31,7 @@
   };
 
   RXSRule.prototype.getStyleSheet = function() {
-    return this.styleSheet || document.styleSheets[0] || this.addStyleSheet();
+    return this.styleSheet || document.styleSheets[document.styleSheets.length - 1] || this.addStyleSheet();
   };
 
   RXSRule.prototype.getRules = function() {
