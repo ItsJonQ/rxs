@@ -13,9 +13,9 @@
   }
 }(typeof window !== 'undefined' ? window : this, function (window, noGlobal) {
   'use strict'
-  const document = window.document
+  var document = window.document
 
-  const RXSRule = function (selector) {
+  var RXSRule = function (selector) {
     this.selector = selector
     this.styleSheet = this.getStyleSheet()
     this.rule = this.getRule()
@@ -24,7 +24,7 @@
   }
 
   RXSRule.prototype.addStyleSheet = function () {
-    const style = document.createElement('style')
+    var style = document.createElement('style')
     style.appendChild(document.createTextNode(''))
     document.head.appendChild(style)
     return style.sheet
@@ -35,7 +35,7 @@
   }
 
   RXSRule.prototype.getRules = function () {
-    const sheet = this.getStyleSheet()
+    var sheet = this.getStyleSheet()
     return sheet.cssRules || sheet.rules
   }
 
@@ -44,7 +44,7 @@
       if (this.rule) {
         this.ruleIndex = this.findRuleIndex()
       } else {
-        const len = this.getRules().length
+        var len = this.getRules().length
         this.ruleIndex = len ? len - 1 : 0
       }
     }
@@ -52,7 +52,7 @@
   }
 
   RXSRule.prototype.addRule = function () {
-    const index = this.getRuleIndex()
+    var index = this.getRuleIndex()
     this.getStyleSheet().insertRule(this.selector + ' { }', index)
     return this.getRules()[index]
   }
@@ -65,9 +65,9 @@
   }
 
   RXSRule.prototype.findRuleIndex = function () {
-    const rules = this.getRules()
-    let index = false
-    for (let i = 0, len = Object.keys(rules).length; i < len; i++) {
+    var rules = this.getRules()
+    var index = false
+    for (var i = 0, len = Object.keys(rules).length; i < len; i++) {
       if (rules[i].selectorText === this.selector) {
         index = i; break
       }
@@ -76,9 +76,9 @@
   }
 
   RXSRule.prototype.findRule = function () {
-    const rules = this.getRules()
-    const index = this.findRuleIndex()
-    const rule = index !== false ? rules[index] : false
+    var rules = this.getRules()
+    var index = this.findRuleIndex()
+    var rule = index !== false ? rules[index] : false
     return rule
   }
 
@@ -92,18 +92,18 @@
   }
 
   RXSRule.prototype.set = function (styleProps, important) {
-    const self = this
+    var self = this
     Object.keys(styleProps).forEach(function (k) {
-      const prop = styleProps[k]
-      const p = typeof prop === 'string' ? prop.replace(' !important', '') : prop
-      const i = important === 'important' ? 'important' : self.isImportant(prop)
+      var prop = styleProps[k]
+      var p = typeof prop === 'string' ? prop.replace(' !important', '') : prop
+      var i = important === 'important' ? 'important' : self.isImportant(prop)
       self.getRule().style.setProperty(k, p, i)
     })
     return this
   }
 
   RXSRule.prototype.inspect = function () {
-    const style = this.getRule().style
+    var style = this.getRule().style
     return Object.keys(style).reduce(function (props, r) {
       if (style[r].length && isNaN(parseInt(r, 10))) {
         props[r] = style[r]
@@ -116,7 +116,7 @@
     return this.removeRule()
   }
 
-  const RXS = function (selector, props) {
+  var RXS = function (selector, props) {
     if (!selector || typeof selector !== 'string') {
       return false
     }
